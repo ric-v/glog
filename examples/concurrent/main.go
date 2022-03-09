@@ -10,19 +10,16 @@ import (
 
 func main() {
 
-	logger := glog.NewGlogger("glogger.log")
+	logger := glog.UnstructureGlogger("glogger.log")
 
 	var wg sync.WaitGroup
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 1000; i++ {
 		wg.Add(1)
 		go func(i int, wg *sync.WaitGroup) {
 			defer wg.Done()
-
-			logger.Log("Hello World " + strconv.Itoa(i))
-			logger.Log("Another Hello World " + strconv.Itoa(i))
-			logger.Log("Yet Another Hello World " + strconv.Itoa(i))
+			logger.Info("Hello World " + strconv.Itoa(i))
 		}(i, &wg)
 	}
 	wg.Wait()
-	time.Sleep(time.Millisecond)
+	time.Sleep(time.Second)
 }

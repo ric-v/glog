@@ -1,17 +1,28 @@
 package main
 
 import (
-	"time"
-
 	"github.com/ric-v/glog"
 )
 
+// func main() {
+
+// 	logger := glog.NewGlogger("glogger.log")
+// 	defer logger.Close()
+
+// 	logger.Log("Hello World")
+// 	logger.Log("Another Hello World")
+// 	logger.Log("Yet Another Hello World")
+// }
+
 func main() {
+	// Cleanup the default concurrent logger
+	// this step is required since this is a concurrent logger
+	// include this in the main thread, here main func
+	defer glog.Cleanup()
 
-	logger := glog.NewGlogger("glogger.log")
-
-	logger.Log("Hello World")
-	logger.Log("Another Hello World")
-	logger.Log("Yet Another Hello World")
-	time.Sleep(time.Millisecond)
+	// log the message to the default concurrent logger
+	glog.Info("Hello World")
+	glog.Warn("Another Hello World")
+	glog.Debug("Yet Another Hello World")
+	glog.Error("Done for the day")
 }
