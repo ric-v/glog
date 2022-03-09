@@ -5,7 +5,7 @@ import "github.com/ric-v/glog"
 func main() {
 
 	logger := glog.JSONGlogger("glogger.json")
-	defer logger.Close()
+	defer logger.Cleanup()
 
 	logger.Info("", "Hello", "World")
 	logger.Warn("", "Another", "Hello", "World")

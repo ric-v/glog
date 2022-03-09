@@ -75,7 +75,7 @@ func (g *JSONGlog) log(format string, level LogLevel, msg ...interface{}) {
 }
 
 // safely close the custom logger
-func (g *JSONGlog) Close() {
+func (g *JSONGlog) Cleanup() {
 	close(g.queue)
 	g.wg.Wait()
 }

@@ -22,7 +22,7 @@ type Glogger interface {
 	Info(string, ...interface{})
 	Debug(string, ...interface{})
 	log(string, LogLevel, ...interface{})
-	Close()
+	Cleanup()
 }
 
 // Options is a struct for setting the format of the log messages

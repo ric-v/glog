@@ -45,7 +45,7 @@ func (g *UnstructureGlog) log(format string, level LogLevel, msg ...interface{})
 }
 
 // safely close the custom logger
-func (g *UnstructureGlog) Close() {
+func (g *UnstructureGlog) Cleanup() {
 	close(g.queue)
 	g.wg.Wait()
 }

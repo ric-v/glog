@@ -10,7 +10,7 @@ import (
 func main() {
 
 	logger := glog.UnstructureGlogger("glogger.log")
-	defer logger.Close()
+	defer logger.Cleanup()
 
 	var wg sync.WaitGroup
 	for i := 0; i < 1000; i++ {
