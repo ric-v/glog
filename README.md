@@ -1,5 +1,5 @@
 <div align="center">
-<img style='max-width: 100px' src="./glugger.png" />
+<img src="./glugger.png" />
 <h1>Glog</h1>
 <h4>Glog glugs the log files in a concurrent and thread-safe way.</h4>
 <h4>Simple and easy implement interface to log fast and efficiently</h4>
