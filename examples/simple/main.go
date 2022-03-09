@@ -4,16 +4,7 @@ import (
 	"github.com/ric-v/glog"
 )
 
-// func main() {
-
-// 	logger := glog.NewGlogger("glogger.log")
-// 	defer logger.Close()
-
-// 	logger.Log("Hello World")
-// 	logger.Log("Another Hello World")
-// 	logger.Log("Yet Another Hello World")
-// }
-
+// write to stdout
 func main() {
 	// Cleanup the default concurrent logger
 	// this step is required since this is a concurrent logger
@@ -26,3 +17,14 @@ func main() {
 	glog.Debug("Yet Another Hello World")
 	glog.Error("Done for the day")
 }
+
+// write to file
+// func main() {
+
+// 	logger := glog.NewGlogger("glogger.log")
+// 	defer logger.Close()
+
+// 	logger.Log("Hello World")
+// 	logger.Log("Another Hello World")
+// 	logger.Log("Yet Another Hello World")
+// }

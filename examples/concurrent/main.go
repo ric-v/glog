@@ -3,7 +3,6 @@ package main
 import (
 	"strconv"
 	"sync"
-	"time"
 
 	"github.com/ric-v/glog"
 )
@@ -11,6 +10,7 @@ import (
 func main() {
 
 	logger := glog.UnstructureGlogger("glogger.log")
+	defer logger.Close()
 
 	var wg sync.WaitGroup
 	for i := 0; i < 1000; i++ {
@@ -21,5 +21,4 @@ func main() {
 		}(i, &wg)
 	}
 	wg.Wait()
-	time.Sleep(time.Second)
 }
