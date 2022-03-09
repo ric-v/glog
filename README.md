@@ -43,7 +43,7 @@ import "github.com/ric-v/glog"
 
 func main() {
     logger := glog.JSONGlogger("glogger.log")
-    defer logger.Close()
+    defer logger.Cleanup()
 
     // log the message to custom json logger
     logger.Info("", "Hello", "World")
