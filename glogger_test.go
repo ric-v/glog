@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+const testFile = "test.log"
+
 func TestUnstructureGlogger(t *testing.T) {
 	type args struct {
 		filePath string
@@ -19,7 +21,7 @@ func TestUnstructureGlogger(t *testing.T) {
 		{
 			name: "success",
 			args: args{
-				filePath: "test.log",
+				filePath:testFile,
 				options:  []Options{},
 			},
 			wantNil: false,
@@ -40,7 +42,7 @@ func TestUnstructureGlogger(t *testing.T) {
 			}
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 func TestJSONGlogger(t *testing.T) {
@@ -56,7 +58,7 @@ func TestJSONGlogger(t *testing.T) {
 		{
 			name: "success",
 			args: args{
-				filePath: "test.log",
+				filePath:testFile,
 				options:  []Options{},
 			},
 			wantNil: false,
@@ -144,7 +146,7 @@ func TestDefaultGlog_log(t *testing.T) {
 			Debug(tt.args.msg...)
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 func TestDefaultGlog_logf(t *testing.T) {
@@ -176,7 +178,7 @@ func TestDefaultGlog_logf(t *testing.T) {
 			Debugf(tt.args.format, tt.args.msg...)
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 // func TestCleanup(t *testing.T) {

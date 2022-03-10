@@ -59,7 +59,7 @@ func TestJSONGlog_log(t *testing.T) {
 			tt.g.log(tt.args.level, tt.args.msg...)
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 func TestJSONGlog_logf(t *testing.T) {
@@ -100,25 +100,25 @@ func TestJSONGlog_logf(t *testing.T) {
 			tt.g.logf(tt.args.format, tt.args.level, tt.args.msg...)
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 // benchmarking
 func BenchmarkJSONGlog_logf(b *testing.B) {
-	g := NewJSONGlogger("test.log")
+	g := NewJSONGlogger(testFile)
 	for i := 0; i < b.N; i++ {
 		g.logf("", INFO, "key", "value", "key-2", 10, "key-3", true, "key-4", g)
 	}
 	g.Cleanup()
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 // benchmarking
 func BenchmarkJSONGlog_log(b *testing.B) {
-	g := NewJSONGlogger("test.log")
+	g := NewJSONGlogger(testFile)
 	for i := 0; i < b.N; i++ {
 		g.log(INFO, "key", "value", "key-2", 10, "key-3", true, "key-4", g)
 	}
 	g.Cleanup()
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
