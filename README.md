@@ -58,6 +58,13 @@ func main() {
 }
 ```
 
+## Benchmarks
+
+| Benchmark  | Iterations  | Time  | Size  | Allocation  |
+|---|---|---|---|---|
+| BenchmarkJSONGlog  | 266092  | 3853 ns/op  | 2185 B/op  | 25 allocs/op  |
+| BenchmarkUnstructureGlog_log  | 412342  | 3054 ns/o  | 984 B/op  | 13 allocs/op  |
+
 ## Examples
 
 visit examples [here](https://github.com/ric-v/glog/tree/main/examples)
