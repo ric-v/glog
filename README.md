@@ -10,6 +10,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/ric-v/glog/badge)](https://www.codefactor.io/repository/github/ric-v/glog)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ric-v_glog&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ric-v_glog)
+[![GoDoc](https://godoc.org/github.com/narqo/go-badge?status.svg)](https://pkg.go.dev/github.com/ric-v/glog)
 
 </div>
 
