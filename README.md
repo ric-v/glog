@@ -5,6 +5,7 @@
 <h4>Simple and easy to implement interfaces to log fast and efficiently</h4>
 
 [![Go](https://github.com/ric-v/glog/actions/workflows/go.yml/badge.svg)](https://github.com/ric-v/glog/actions/workflows/go.yml)
+[![CodeQL](https://github.com/ric-v/glog/actions/workflows/codeql.yml/badge.svg)](https://github.com/ric-v/glog/actions/workflows/codeql.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ric-v/glog)](https://goreportcard.com/report/github.com/ric-v/glog)
 [![CodeFactor](https://www.codefactor.io/repository/github/ric-v/glog/badge)](https://www.codefactor.io/repository/github/ric-v/glog)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
@@ -56,6 +57,13 @@ func main() {
     logger.Info("", "Hello", "World")
 }
 ```
+
+## Benchmarks
+
+| Benchmark  | Iterations  | Time  | Size  | Allocation  |
+|---|---|---|---|---|
+| BenchmarkJSONGlog  | 266092  | 3853 ns/op  | 2185 B/op  | 25 allocs/op  |
+| BenchmarkUnstructureGlog_log  | 412342  | 3054 ns/o  | 984 B/op  | 13 allocs/op  |
 
 ## Examples
 
