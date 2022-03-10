@@ -4,6 +4,7 @@
 <h4>Glog glugs the log files in a concurrent and thread-safe way.</h4>
 <h4>Simple and easy to implement interfaces to log fast and efficiently</h4>
 
+[![Go](https://github.com/ric-v/glog/actions/workflows/go.yml/badge.svg)](https://github.com/ric-v/glog/actions/workflows/go.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ric-v/glog)](https://goreportcard.com/report/github.com/ric-v/glog)
 [![CodeFactor](https://www.codefactor.io/repository/github/ric-v/glog/badge)](https://www.codefactor.io/repository/github/ric-v/glog)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://img.shields.io/badge/Maintained%3F-yes-green.svg)

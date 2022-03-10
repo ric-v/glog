@@ -17,65 +17,6 @@ var (
 	_ easyjson.Marshaler
 )
 
-func easyjsonC5e9d7b4DecodeGithubComRicVGlog(in *jlexer.Lexer, out *LoggerJson) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeFieldName(false)
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "time":
-			out.Time = string(in.String())
-		case "type":
-			out.Type = string(in.String())
-		case "file":
-			out.File = string(in.String())
-		case "line":
-			out.Line = string(in.String())
-		case "msg":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				out.Msg = make(map[string]interface{})
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v1 interface{}
-					if m, ok := v1.(easyjson.Unmarshaler); ok {
-						m.UnmarshalEasyJSON(in)
-					} else if m, ok := v1.(json.Unmarshaler); ok {
-						_ = m.UnmarshalJSON(in.Raw())
-					} else {
-						v1 = in.Interface()
-					}
-					(out.Msg)[key] = v1
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
-		default:
-			in.SkipRecursive()
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
 func easyjsonC5e9d7b4EncodeGithubComRicVGlog(out *jwriter.Writer, in LoggerJson) {
 	out.RawByte('{')
 	first := true
@@ -135,21 +76,4 @@ func (v LoggerJson) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
 	easyjsonC5e9d7b4EncodeGithubComRicVGlog(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
-}
-
-// MarshalEasyJSON supports easyjson.Marshaler interface
-func (v LoggerJson) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonC5e9d7b4EncodeGithubComRicVGlog(w, v)
-}
-
-// UnmarshalJSON supports json.Unmarshaler interface
-func (v *LoggerJson) UnmarshalJSON(data []byte) error {
-	r := jlexer.Lexer{Data: data}
-	easyjsonC5e9d7b4DecodeGithubComRicVGlog(&r, v)
-	return r.Error()
-}
-
-// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
-func (v *LoggerJson) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonC5e9d7b4DecodeGithubComRicVGlog(l, v)
 }
