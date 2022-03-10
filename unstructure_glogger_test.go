@@ -43,7 +43,7 @@ func TestUnstructureGlog_log(t *testing.T) {
 			tt.g.log(tt.args.level, tt.args.msg...)
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 func TestUnstructureGlog_logf(t *testing.T) {
@@ -83,25 +83,25 @@ func TestUnstructureGlog_logf(t *testing.T) {
 			tt.g.logf(tt.args.format, tt.args.level, tt.args.msg...)
 		})
 	}
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 // benchmarking
 func BenchmarkUnstructureGlog_logf(b *testing.B) {
-	g := NewUnstructureGlogger("test.log")
+	g := NewUnstructureGlogger(testFile)
 	for i := 0; i < b.N; i++ {
 		g.logf("%s, %v, %d, %t, %s, %v, %d, %t", ERROR, "Success", g, 1, true, "Success", g, 1, true)
 	}
 	g.Cleanup()
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
 
 // benchmarking
 func BenchmarkUnstructureGlog_log(b *testing.B) {
-	g := NewUnstructureGlogger("test.log")
+	g := NewUnstructureGlogger(testFile)
 	for i := 0; i < b.N; i++ {
 		g.log(ERROR, "Success", g, 1, true)
 	}
 	g.Cleanup()
-	os.RemoveAll("test.log")
+	os.RemoveAll(testFile)
 }
