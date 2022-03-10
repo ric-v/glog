@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	logger := glog.UnstructureGlogger("glogger.log")
+	logger := glog.NewUnstructureGlogger("glogger.log")
 	defer logger.Cleanup()
 
 	var wg sync.WaitGroup
